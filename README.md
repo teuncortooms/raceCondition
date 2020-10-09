@@ -35,7 +35,11 @@ Dit zijn de condities van zo'n situatie:
 - de eigenschap klopt niet op elk moment
 - een andere thread krijgt toegang op dat moment
 
-Een oplossing is door een Lock-object aan te maken en met methodes Enter en Exit (System.Threading.Monitor in .NET) te laten weten of een thread toegang heeft. Andere threads wachten dan tot het Lock-object vrijgegeven is, voordat zij toegang krijgen.
+Beter voorkomen, dan genezen: objecten immutable maken door fields final (const) te maken.
+
+C#: Een oplossing is door een Lock-object aan te maken en met methodes Enter en Exit (System.Threading.Monitor in .NET) te laten weten of een thread toegang heeft. Andere threads wachten dan tot het Lock-object vrijgegeven is, voordat zij toegang krijgen.
+
+Java: synchronized(something){} zorgt ervoor dat een blok code maar door één thread tegelijk uitgevoerd kan worden, en tegelijk wordt ook een something gelockt. Je kunt ook het synchronized keyword in de signatuur van een methode gebruiken.
 
 
 
@@ -44,3 +48,4 @@ Een oplossing is door een Lock-object aan te maken en met methodes Enter en Exit
 ### Bronnen
 https://www.backblaze.com/blog/whats-the-diff-programs-processes-and-threads/
 https://docs.microsoft.com/nl-nl/archive/blogs/vancem/encore-presentation-what-every-dev-must-know-about-multithreaded-apps
+https://www.webucator.com/how-to/how-prevent-race-conditions-java-8.cfm
