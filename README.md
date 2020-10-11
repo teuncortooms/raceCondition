@@ -30,10 +30,10 @@ Elke thread heeft zijn eigen stack
 
 ## Wat is in dit kader een racing condition? Hoe zou je dit kunnen voorkomen?
 Dit zijn de condities waarbij een Race kan ontstaan:
-1 memory locatie die te bereiken is vanuit meerdere threads
-2 eigenschap van de data in die locatie die van belang is voor juiste uitvoering van programma
-3 de eigenschap klopt niet op elk moment
-4 een andere thread krijgt toegang op dat moment
+1. memory locatie die te bereiken is vanuit meerdere threads
+2. eigenschap van de data in die locatie die van belang is voor juiste uitvoering van programma
+3. de eigenschap klopt niet op elk moment
+4. een andere thread krijgt toegang op dat moment
 
 Beter voorkomen, dan genezen: 
 - 1 en 2 zijn deels te beperken door gebruik van globals en statics te vermijden, en state te minimaliseren
@@ -43,16 +43,16 @@ Beter voorkomen, dan genezen:
 	C#: `lock(lockObject){}`
 	Under the hood worden in .NET methodes Enter en Exit van System.Threading.Monitor gebruikt. Deze laten weten of een thread toegang heeft. Andere threads wachten dan tot het Lock-object (Object class) vrijgegeven is, voordat zij toegang krijgen. De Monitor class heeft meer bruikbare methodes om threads te laten samenwerken. 
 	
-	Java: synchronized(lockOject){} 
+	Java: `synchronized(lockOject){}`
 	Dit doet hetzelfde in Java. Het lockObject moet een instantie van de Lock class zijn. Je kunt ook het synchronized keyword in de signatuur van een methode gebruiken, dan wordt het parent object (this) als lock object gebruikt en heb je niet de flexibliteit van een custom lock object. Daarnaast kun je in Java (vergelijkbaar met C#) werken met lockObject.lock() (C# Enter) en .unlock (C# Exit) voor nog meer flexibiliteit. 
 	
 ## Maak een Proof of Concept met multithreading, een race condition en een valide oplossing
 Zie deze solution
 
 ### Bronnen
-https://www.backblaze.com/blog/whats-the-diff-programs-processes-and-threads/
-https://docs.microsoft.com/nl-nl/archive/blogs/vancem/encore-presentation-what-every-dev-must-know-about-multithreaded-apps
-https://www.webucator.com/how-to/how-prevent-race-conditions-java-8.cfm
-https://medium.com/swlh/race-conditions-locks-semaphores-and-deadlocks-a4f783876529
-https://www.pluralsight.com/guides/lock-statement-access-data
-...
+- https://www.backblaze.com/blog/whats-the-diff-programs-processes-and-threads/
+- https://docs.microsoft.com/nl-nl/archive/blogs/vancem/encore-presentation-what-every-dev-must-know-about-multithreaded-apps
+- https://www.webucator.com/how-to/how-prevent-race-conditions-java-8.cfm
+- https://medium.com/swlh/race-conditions-locks-semaphores-and-deadlocks-a4f783876529
+- https://www.pluralsight.com/guides/lock-statement-access-data
+- ...
