@@ -1,8 +1,8 @@
 # raceCondition
 
 ## Wat is multithreading?
-Een thread van een proces voert één voor één de instructies uit die de programmeur heeft gespecificeerd. Elk programma heeft minstens één thread, de main thread, en kan meer threads starten om taken simultaan uit te voeren. Elke thread heeft zijn eigen stack, instruction pointer en cpu register, maar heap en static/global data is gedeeld.
-In een computer met meerdere cpu cores kunnen processen en threads parallel worden uitgevoerd. In computers met maar één core wordt de cpu rekenkracht verdeeld door heel snel te switchen.
+Een thread van een proces voert Ã©Ã©n voor Ã©Ã©n de instructies uit die de programmeur heeft gespecificeerd. Elk programma heeft minstens Ã©Ã©n thread, de main thread, en kan meer threads starten om taken simultaan uit te voeren. Elke thread heeft zijn eigen stack, instruction pointer en cpu register, maar heap en static/global data is gedeeld.
+In een computer met meerdere cpu cores kunnen processen en threads parallel worden uitgevoerd. In computers met maar Ã©Ã©n core wordt de cpu rekenkracht verdeeld door heel snel te switchen.
 
 TODO: Tasks goed onderzoeken
 
@@ -40,7 +40,7 @@ Beter voorkomen, dan genezen:
 - 3 voorkomen door objecten immutable te maken, dus fields final (const) te maken. 
 - 4 voorkomen door te werken met Locks:
 
-	C#: lock(lockObject){}
+	C#: `lock(lockObject){}`
 	Under the hood worden in .NET methodes Enter en Exit van System.Threading.Monitor gebruikt. Deze laten weten of een thread toegang heeft. Andere threads wachten dan tot het Lock-object (Object class) vrijgegeven is, voordat zij toegang krijgen. De Monitor class heeft meer bruikbare methodes om threads te laten samenwerken. 
 	
 	Java: synchronized(lockOject){} 
