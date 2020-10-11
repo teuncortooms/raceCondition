@@ -4,7 +4,7 @@
 Een thread van een proces voert één voor één de instructies uit die de programmeur heeft gespecificeerd. Elk programma heeft minstens één thread, de main thread, en kan meer threads starten om taken simultaan uit te voeren. Elke thread heeft zijn eigen stack, instruction pointer en cpu register, maar heap en static/global data is gedeeld.
 In een computer met meerdere cpu cores kunnen processen en threads parallel worden uitgevoerd. In computers met maar één core wordt de cpu rekenkracht verdeeld door heel snel te switchen.
 
-TODO: Tasks goed onderzoeken
+- [ ] TODO: Tasks goed onderzoeken
 
 ## Wanneer gebruik je meerdere threads?
 Je kunt threads gebruiken om instructies op uit te voeren zonder de main thread te onderbreken.  Het voordeel ervan is dat een programma sneller kan zijn, door taken te verdelen over threads. Een ander voordeel is dat je programma meer responsive kan zijn, bijvoorbeeld in het geval dat je de event loop van een ui op een thread uitvoert die nooit geblokkeerd wordt door zware of lange taken. 
