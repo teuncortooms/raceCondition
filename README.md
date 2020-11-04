@@ -36,7 +36,8 @@ Dit zijn de condities waarbij een Race kan ontstaan:
 4. een andere thread krijgt toegang op dat moment
 
 Beter voorkomen, dan genezen: 
-- 1 en 2 zijn deels te beperken door gebruik van globals en statics te vermijden, en state te minimaliseren
+- 1 is te beperken door gebruik van globals en statics te vermijden, en state te minimaliseren
+- 2 beperken door threads niet (zo min mogelijk) afhankelijk te maken van gedeelde data
 - 3 voorkomen door objecten immutable te maken, dus fields final (const) te maken. 
 - 4 voorkomen door te werken met Locks:
 
