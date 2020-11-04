@@ -5,11 +5,17 @@ using System.Threading;
 
 namespace raceCondition
 {
-    public class CannotCount
+    public class CannotCounter : ICounter
     {
         public int Counter { get; set; } = 0;
 
-        public void AddOne()
+        public void AddOneSlow()
+        {
+            Counter++;
+            Thread.Sleep(100);
+        }
+
+        public void AddOneFast()
         {
             Counter++;
         }

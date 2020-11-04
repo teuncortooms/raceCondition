@@ -5,18 +5,26 @@ using System.Threading;
 
 namespace raceCondition
 {
-    public class CanCount
+    public class CanCounter : ICounter
     {
         public int Counter { get; set; } = 0;
-        object CountLock = new object(); 
+        object CountLock = new object();
 
-        public void AddOne()
+        public void AddOneSlow()
+        {
+            lock (CountLock)
+            {
+                Counter++;
+                Thread.Sleep(100);
+            }
+        }
+
+        public void AddOneFast()
         {
             lock (CountLock)
             {
                 Counter++;
             }
         }
-
     }
 }
