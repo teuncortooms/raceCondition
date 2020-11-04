@@ -7,8 +7,8 @@ namespace raceCondition
 {
     public class CanCounter : ICounter
     {
-        public int Counter { get; set; } = 0;
-        object CountLock = new object();
+        public int Counter { get; private set; } = 0;
+        private readonly object CountLock = new object();
 
         public void AddOneSlow()
         {

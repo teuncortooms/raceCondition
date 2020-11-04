@@ -7,7 +7,7 @@ namespace raceCondition
 {
     public class CannotCounter : ICounter
     {
-        public int Counter { get; set; } = 0;
+        public int Counter { get; private set; } = 0;
 
         public void AddOneSlow()
         {
@@ -19,6 +19,5 @@ namespace raceCondition
         {
             Counter++;
         }
-
     }
 }

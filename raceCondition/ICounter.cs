@@ -2,7 +2,7 @@
 {
     public interface ICounter
     {
-        int Counter { get; set; }
+        int Counter { get; }
 
         void AddOneSlow();
         void AddOneFast();
