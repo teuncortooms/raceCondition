@@ -15,8 +15,8 @@ namespace raceCondition
             lock (CountLock)
             {
                 Counter++;
-                Thread.Sleep(100);
             }
+            Thread.Sleep(100);
         }
 
         public void AddOneFast()
