@@ -7,23 +7,29 @@ namespace raceCondition
 {
     public class CanCounter : ICounter
     {
-        public int Counter { get; private set; } = 0;
         private readonly object CountLock = new object();
 
-        public void AddOneSlow()
+        public int Counter { get; private set; } = 0;
+
+        public void AddMany(int howmany)
         {
             lock (CountLock)
             {
-                Counter++;
+                for (int i = 0; i < howmany; i++)
+                {
+                    Counter++;
+                }
             }
-            Thread.Sleep(100);
         }
 
-        public void AddOneFast()
+        public void SubtractMany(int howmany)
         {
             lock (CountLock)
             {
-                Counter++;
+                for (int i = 0; i < howmany; i++)
+                {
+                    Counter--;
+                }
             }
         }
     }

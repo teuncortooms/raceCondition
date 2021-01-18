@@ -10,30 +10,31 @@ namespace raceCondition.Tests
     [TestClass()]
     public class CounterTests
     {
-        private void Add_one_slow_then_one_fast_returns_two(ICounter counter)
+        private void Add_many_then_subtract_many_returns_0(ICounter counter)
         {
-            int expected = 2;
+            int howmany = 1000000;
+            int expected = 0;
 
-            Thread thread1 = new Thread(counter.AddOneSlow);
-            thread1.Start();
-            counter.AddOneFast();
+            Thread otherThread = new Thread(() => counter.AddMany(howmany));
+            otherThread.Start();
+            counter.SubtractMany(howmany);
 
-            Thread.Sleep(200); // wait for all threads to finish
+            otherThread.Join(); // wait for thread to finish
             int actual = counter.Counter;
 
             Assert.AreEqual(expected, actual);
         }
 
         [TestMethod()]
-        public void CannotCounter_Add_one_slow_then_one_fast_returns_two()
+        public void CannotCounter_Add_many_then_subtract_many_returns_0()
         {
-            Add_one_slow_then_one_fast_returns_two(new CannotCounter());
+            Add_many_then_subtract_many_returns_0(new CannotCounter());
         }
 
         [TestMethod()]
-        public void CanCounter_Add_one_slow_then_one_fast_returns_two()
+        public void CanCounter_Add_many_then_subtract_many_returns_0()
         {
-            Add_one_slow_then_one_fast_returns_two(new CanCounter());
+            Add_many_then_subtract_many_returns_0(new CanCounter());
         }
     }
 }

@@ -4,7 +4,7 @@
     {
         int Counter { get; }
 
-        void AddOneSlow();
-        void AddOneFast();
+        void AddMany(int howmany);
+        void SubtractMany(int howmany);
     }
 }

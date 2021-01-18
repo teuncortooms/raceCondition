@@ -9,15 +9,20 @@ namespace raceCondition
     {
         public int Counter { get; private set; } = 0;
 
-        public void AddOneSlow()
+        public void AddMany(int howmany)
         {
-            Counter++;
-            Thread.Sleep(100);
+            for (int i = 0; i < howmany; i++)
+            {
+                Counter++;
+            }
         }
 
-        public void AddOneFast()
+        public void SubtractMany(int howmany)
         {
-            Counter++;
+            for (int i = 0; i < howmany; i++)
+            {
+                Counter--;
+            }
         }
     }
 }
